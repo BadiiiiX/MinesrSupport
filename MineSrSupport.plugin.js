@@ -1,4 +1,4 @@
-//META{"name":"MineSupport","authorId":"259362855462240256","invite":"Njzk3JS","website":"https://www.illutech.fr/"}*//
+//META{"name":"MineSupport","authorId":"259362855462240256","invite":"Njzk3JS","website":"https://www.illutech.fr/","source":"https://raw.githubusercontent.com/BadiiiiX/MineSrSupport/master/MineSrSupport.plugin.js?token=AOIJWH4TXST64ZJ6273WEES6SIYBQ"}}*//
 
 
 class MineSupport {
