@@ -14,7 +14,7 @@ var MineSupport = (() => {
             name: "MinesrSupport",
             authors: [{name: "BadiiiX", github_username: "BadiiiiX", twitter_username: "BadiiiX_IT", discord_id: "259362855462240256"}],
             description: "Réouvre le salon pour un support sur le discord de Minestrator",
-            version: "1.1.0",
+            version: "1.1.1",
             github: "https://github.com/BadiiiiX/MinesrSupport",
             github_raw: "https://raw.githubusercontent.com/BadiiiiX/MinesrSupport/master/MinesrSupport.plugin.js"
         },
