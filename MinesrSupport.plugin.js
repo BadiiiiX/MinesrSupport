@@ -83,9 +83,6 @@ var MinesrSupport = (() => {
             return class MinesrSupport extends Plugin {
                 onStart(){
                     PluginUtilities.addStyle("MineSupport-css", `
-                        .minesrButton:hover {
-                            transform: scale(0.5)
-                        }
                     `);
                 }
 
