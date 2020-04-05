@@ -8,13 +8,13 @@
  * @authorId 259362855462240256
  */
 
-var MineSupport = (() => {
+var MinesrSupport = (() => {
     const config = {
         info:{
             name: "MinesrSupport",
             authors: [{name: "BadiiiX", github_username: "BadiiiiX", twitter_username: "BadiiiX_IT", discord_id: "259362855462240256"}],
             description: "Réouvre le salon pour un support sur le discord de Minestrator",
-            version: "1.1.1",
+            version: "1.1.0",
             github: "https://github.com/BadiiiiX/MinesrSupport",
             github_raw: "https://raw.githubusercontent.com/BadiiiiX/MinesrSupport/master/MinesrSupport.plugin.js"
         },
@@ -80,7 +80,7 @@ var MineSupport = (() => {
         const plugin = (Plugin, Api) => {
             const {DiscordSelectors, WebpackModules, DiscordModules, Patcher, ReactComponents, PluginUtilities} = Api;
 
-            return class TypingIndicator extends Plugin {
+            return class MinesrSupport extends Plugin {
                 onStart(){
                     PluginUtilities.addStyle("MineSupport-css", `
                         .minesrButton:hover {
