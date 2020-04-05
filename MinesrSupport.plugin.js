@@ -25,23 +25,30 @@ var MinesrSupport = (() => {
                 name: "Afficher seulement dans les salons supports",
                 note: "Affiche le bouton seulement dans les salons supports (Non Fonctionnel)",
                 value: true
+            },
+            {
+                type: "switch",
+                id: "channels",
+                name: "Envoyer les messages instantanément",
+                note: "Envoyer les message sans attendre (Non Fonctionnel)",
+                value: true
             }
         ],
         changelog:[
             {
                 "title": "Ajouts / Changements",
                 "type": "added",
-                "items": ["**Code** : Changement du code complet, il est plus propre, il prend ses douches seul.", "**Mises à jours** : Les MàJ sont désormais automatique, t'as plus rien à toucher maintenant !", "**META** : Nouvelle META, changement du style, mainteant, on est sûr de gagner !"]
+                "items": ["**Code** : Changement du code complet, il est plus propre, il prend ses douches seul.", "**Mises à jours** : Les MàJ sont désormais automatiques, t'as plus rien à toucher maintenant !", "**META** : Nouvelle META, changement du style, maintenant, on est sûr de gagner !"]
             },
             {
                 "title": "Bugs Réglés",
                 "type": "fixed",
-                "items": ["**Duplication** : Le bouton se sentait seul, je lui est ajouté un ami imaginaire"]
+                "items": ["**Duplication** : Le bouton se sentait seul, je lui ai ajouté un ami imaginaire."]
             },
             {
                 "title": "Fonctions à venir",
                 "type": "improved",
-                "items": ["**Paramètres** : Ajouts de quelques fonctions, qui arriveront bientôt, mais tu peux déjà les voir, héhé"]
+                "items": ["**Paramètres** : Ajouts de quelques fonctions, qui arriveront bientôt."]
             },
         ]
     };
