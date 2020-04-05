@@ -1,6 +1,6 @@
 /**
- * @name MineSupport
- * @displayName MineSupport
+ * @name MinesrSupport
+ * @displayName MinesrSupport
  * @website https://www.illutech.fr/
  * @source https://raw.githubusercontent.com/BadiiiiX/MinesrSupport/master/MinesrSupport.plugin.js
  * @paypal https://paypal.me/badiiix
@@ -11,7 +11,7 @@
 var MineSupport = (() => {
     const config = {
         info:{
-            name: "MineSupport",
+            name: "MinesrSupport",
             authors: [{name: "BadiiiX", github_username: "BadiiiiX", twitter_username: "BadiiiX_IT", discord_id: "259362855462240256"}],
             description: "Réouvre le salon pour un support sur le discord de Minestrator",
             version: "1.1.0",
