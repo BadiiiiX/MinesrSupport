@@ -3,7 +3,7 @@
  * @displayName MinesrSupport
  * @website https://www.illutech.fr/
  * @source https://raw.githubusercontent.com/BadiiiiX/MinesrSupport/master/MinesrSupport.plugin.js
- * @donate https://paypal.me/badiiix
+ * @donate https://paypal.me/illubadiiix
  * @invite Njzk3JS
  * @authorId 259362855462240256
  */
@@ -19,7 +19,7 @@ var MinesrSupport = (() => {
                 discord_id: "259362855462240256"
             }],
             description: "Réouvre le salon pour un support sur le discord de Minestrator",
-            version: "1.2.0",
+            version: "1.3.0",
             github: "https://github.com/BadiiiiX/MinesrSupport",
             github_raw: "https://raw.githubusercontent.com/BadiiiiX/MinesrSupport/master/MinesrSupport.plugin.js"
         },
@@ -34,24 +34,24 @@ var MinesrSupport = (() => {
                 type: "textbox",
                 id: "timeToWait",
                 name: "Temps de pause en les deux messages :",
-                note: "Permet de mettre un temps de pause en ms entre les deux messages (Non Fonctionnel)",
+                note: "/!\ Permet de mettre un temps de pause en ms entre les deux messages (Non Fonctionnel)",
                 value: "500"
             },
         ],
         changelog: [{
                 "title": "Ajouts / Changements",
                 "type": "added",
-                "items": ["**Config** : Il y a une option dans la configuration qui marche ! Va voir, c'est un ordre !", "**Temps**: Pendant qu'on puisse modifier le temps d'attente entre message, j'ai fais en sorte que le deuxième message arrive plus vite, presque 2x plus vite."]
+                "items": ["**Inter-Discord** : Le plugin parle à plusieurs serveurs Discord, il est ainsi compatible pour CraftMyWebsite & WebStrator."]
             },
             {
                 "title": "Bugs Réglés",
                 "type": "fixed",
-                "items": ["**META** : Le bouton **Donate** est réapparu ! (N'hésitez pas, c'est toujours cool.)"]
+                "items": ["**META** : Le lien de donation a changé, c'était un vieux compte :-/ ! (N'hésitez pas à me passer un pourboire, c'est toujours cool.)"]
             },
             {
                 "title": "Fonctions à venir",
                 "type": "improved",
-                "items": ["**Temps** : Tu pourras choisir, enfin, le temps qu'il y aura à attendre entre les deux messages.", "**Inter-Discord** : Le bouton marchera pour WebStrator & CMW ! ça arrive ^^", "**AntiSpam** : Un Anti-Spam arrive très très vite, car là, ce n'est pas possible.", "**Description** : Vu que certaines personne ne savent pas à quoi sert le bouton je suppose...", "**Code** : J'en ai mal aux yeux, ça sera une des nouveauté, un code plus opti... C'est pire que l'AntiSpam."]
+                "items": ["**Hype** : Plusieurs fonctions arrivent, je comprends de mieux en mieux la lib qui me permet de faire ce plugin ^^"]
             },
         ]
     };
@@ -112,7 +112,6 @@ var MinesrSupport = (() => {
                     `);
                 }
 
-
                 onSwitch() {
 
 
@@ -123,12 +122,15 @@ var MinesrSupport = (() => {
                         var timeToWait = '1000'
                     }
 
+                    const guildId = ZeresPluginLibrary.DiscordModules.GuildStore.getGuild(ZeresPluginLibrary.DiscordModules.SelectedGuildStore.getLastSelectedGuildId());
+
                     const channelId = ZeresPluginLibrary.DiscordModules.ChannelStore.getChannel(ZeresPluginLibrary.DiscordModules.SelectedChannelStore.getChannelId());
 
                     if (document.querySelector(".minesrButton") == null) {
                         //J'vais en faire un beau tab, avec un if in et ez, bon, je parle tout seul là ?
-                        if (!this.settings.onlyInSupport || (this.settings.onlyInSupport && (channelId.id == 437632887429529620 || channelId.id == 437632903464091648 || channelId.id == 437632918681026590 || channelId.id == 533964455562969099 || channelId.id == 689116487838990402))) {
-                            this.minesrSupportButton = document.getElementsByClassName("toolbar-1t6TWx")[0].insertAdjacentHTML("beforeBegin", `
+                        if (guildId.id == 301334764768722945) {
+                            if (!this.settings.onlyInSupport || (this.settings.onlyInSupport && (channelId.id == 437632887429529620 || channelId.id == 437632903464091648 || channelId.id == 437632918681026590 || channelId.id == 533964455562969099 || channelId.id == 689116487838990402))) {
+                                this.minesrSupportButton = document.getElementsByClassName("toolbar-1t6TWx")[0].insertAdjacentHTML("beforeBegin", `
                                 <div tabindex="0" class="iconWrapper-2OrFZ1 da-iconWrapper clickable-3rdHwn da-clickable focusable-1YV_-H da-focusable minesrButton" role="button" aria-label="Fermer le Support" onClick="
                                 ZeresPluginLibrary.DiscordModules.MessageActions.sendMessage(ZeresPluginLibrary.DiscordModules.SelectedChannelStore.getChannelId(), {
                                     'content': '.salonlibre'
@@ -141,6 +143,33 @@ var MinesrSupport = (() => {
                                         <path fill="currentColor" d="M136.309 189.836L312.313 37.851C327.72 24.546 352 35.348 352 56.015v82.763c129.182 10.231 224 52.212 224 183.548 0 61.441-39.582 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 38.512-123.162-3.922-169.482-112.59-182.015v84.175c0 20.701-24.3 31.453-39.687 18.164L136.309 226.164c-11.071-9.561-11.086-26.753 0-36.328zm-128 36.328L184.313 378.15C199.7 391.439 224 380.687 224 359.986v-15.818l-108.606-93.785A55.96 55.96 0 0 1 96 207.998a55.953 55.953 0 0 1 19.393-42.38L224 71.832V56.015c0-20.667-24.28-31.469-39.687-18.164L8.309 189.836c-11.086 9.575-11.071 26.767 0 36.328z"/>
                                     </svg>
                                 </div>`);
+                            }
+                        } else if (guildId.id == 548458155508760576 || guildId.id == 557178315471978515) {
+                            if (!this.settings.onlyInSupport || (this.settings.onlyInSupport && (channelId.id == 557528701592403978 || channelId.id == 557528721305894913 || channelId.id == 557528736732545042 || channelId.id == 557528755787005967 || channelId.id == 550347472531095552 || channelId.id == 550347489925005332 || channelId.id == 550347499110662154 || channelId.id == 550347516323954689))) {
+                                this.minesrSupportButton = document.getElementsByClassName("toolbar-1t6TWx")[0].insertAdjacentHTML("beforeBegin", `
+                                <div tabindex="0" class="iconWrapper-2OrFZ1 da-iconWrapper clickable-3rdHwn da-clickable focusable-1YV_-H da-focusable minesrButton" role="button" aria-label="Fermer le Support" onClick="
+                                ZeresPluginLibrary.DiscordModules.MessageActions.sendMessage(ZeresPluginLibrary.DiscordModules.SelectedChannelStore.getChannelId(), {
+                                    'content': '.salonlibre'
+                                });">
+                                    <svg aria-hidden="true" class="icon-22AiRD da-icon" name="Ré-ouvrir le salon" viewBox="0 0 576 512">
+                                        <path fill="currentColor" d="M136.309 189.836L312.313 37.851C327.72 24.546 352 35.348 352 56.015v82.763c129.182 10.231 224 52.212 224 183.548 0 61.441-39.582 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 38.512-123.162-3.922-169.482-112.59-182.015v84.175c0 20.701-24.3 31.453-39.687 18.164L136.309 226.164c-11.071-9.561-11.086-26.753 0-36.328zm-128 36.328L184.313 378.15C199.7 391.439 224 380.687 224 359.986v-15.818l-108.606-93.785A55.96 55.96 0 0 1 96 207.998a55.953 55.953 0 0 1 19.393-42.38L224 71.832V56.015c0-20.667-24.28-31.469-39.687-18.164L8.309 189.836c-11.086 9.575-11.071 26.767 0 36.328z"/>
+                                    </svg>
+                                </div>`);
+                            } else {
+                                this.minesrSupportButton = document.getElementsByClassName("toolbar-1t6TWx")[0].insertAdjacentHTML("beforeBegin", `
+                                <div tabindex="0" class="iconWrapper-2OrFZ1 da-iconWrapper clickable-3rdHwn da-clickable focusable-1YV_-H da-focusable minesrButton" role="button" aria-label="Fermer le Support" onClick="
+                                ZeresPluginLibrary.DiscordModules.MessageActions.sendMessage(ZeresPluginLibrary.DiscordModules.SelectedChannelStore.getChannelId(), {
+                                    'content': '.salonlibre'
+                                });
+                                setTimeout(() => ZeresPluginLibrary.DiscordModules.MessageActions.sendMessage(ZeresPluginLibrary.DiscordModules.SelectedChannelStore.getChannelId(), {
+                                    'content': '.cp'
+                                }), 650)
+                                ">
+                                    <svg aria-hidden="true" class="icon-22AiRD da-icon" name="Ré-ouvrir le salon" viewBox="0 0 576 512">
+                                        <path fill="currentColor" d="M136.309 189.836L312.313 37.851C327.72 24.546 352 35.348 352 56.015v82.763c129.182 10.231 224 52.212 224 183.548 0 61.441-39.582 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 38.512-123.162-3.922-169.482-112.59-182.015v84.175c0 20.701-24.3 31.453-39.687 18.164L136.309 226.164c-11.071-9.561-11.086-26.753 0-36.328zm-128 36.328L184.313 378.15C199.7 391.439 224 380.687 224 359.986v-15.818l-108.606-93.785A55.96 55.96 0 0 1 96 207.998a55.953 55.953 0 0 1 19.393-42.38L224 71.832V56.015c0-20.667-24.28-31.469-39.687-18.164L8.309 189.836c-11.086 9.575-11.071 26.767 0 36.328z"/>
+                                    </svg>
+                                </div>`);
+                            }
                         }
                     }
                 }
